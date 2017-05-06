@@ -13,4 +13,4 @@ Point.prototype.set = function(x, y){
   }
 }
 
-module.exports = Point;
+export default Point;

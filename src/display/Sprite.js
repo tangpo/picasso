@@ -1,6 +1,6 @@
 import BaseDisplayObject from './baseDisplayObject.js';
 
-class Sprite extends BaseDisplayObject{
+export default class Sprite extends BaseDisplayObject{
   constructor(game,type,key,x=0,y=0,w,h){
     super(type,x,y,w,h);
     this.key = key;

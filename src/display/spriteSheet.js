@@ -1,4 +1,6 @@
-class SpriteSheet extends Sprite{
+import Sprite from './Sprite.js';
+
+export default class SpriteSheet extends Sprite{
   constructor(game,key,x=0,y=0,w,h,options={}){
     super(game,'spritesheet',key,x,y,w,h);
 
@@ -12,7 +14,7 @@ class SpriteSheet extends Sprite{
     let resource = game._resources[key];
 
     if(!resource && '_DEV_' !== 'production'){
-      console.error(key + ' 没有对应的资源图片');
+      console.error(key + ' 没有对应的资溝图片');
       return;
     }
 
@@ -46,9 +48,9 @@ class SpriteSheet extends Sprite{
   }
 /**
  * [play description]
- * @param  {[string]}    type      add:将id加进当前播放序列中 replace:使用传进的ID替换当前所有序列
- * @param  {...[type]} frameIdxs  若是要加进当前序列，则id值必须在当前的序列值上递增
- * @return {[type]}    当前对象
+ * @param  {[string]}    type      add:将id加进当剝播放庝列中 replace:使用传进的ID替杢当剝所有庝列
+ * @param  {...[type]} frameIdxs  若是覝加进当剝庝列，则id值必须在当剝的庝列值上递增
+ * @return {[type]}    当剝对象
  */
   play (type,...frameIdxs) {
 
@@ -66,5 +68,3 @@ class SpriteSheet extends Sprite{
     return this;
   }
 }
-
-Picasso.SpriteSheet = SpriteSheet;

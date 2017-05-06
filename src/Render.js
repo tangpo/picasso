@@ -1,4 +1,4 @@
-module.exports = class Render{
+export default class Render{
 
   static renderView(picasso){
     let ctx = picasso._ctx;

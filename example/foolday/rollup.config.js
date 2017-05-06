@@ -17,9 +17,9 @@ import css2 from 'rollup-plugin-css-only';
 //import extraCss from './plugin/extracss.js';
 
 export default {
-  entry: 'src/picasso.js',
-  format: 'cjs',
-  dest: './dist/picasso.js',
+  entry: 'index.js',
+  format: 'umd',
+  dest: './dist/index.js',
   sourceMap: 'inline',
   plugins: [
     resolve({
@@ -45,15 +45,14 @@ export default {
     buble({
         exclude: 'node_modules/**',
     }),
-    // replace({
-    //   exclude: 'node_modules/**',
-    //   ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
-    // }),
+    replace({
+      exclude: 'node_modules/**',
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    }),
     // eslint({
     //   exclude: [
     //     'src/styles/**','**/node_modules/**'
     //   ]
-    // }),
-    (process.env.NODE_ENV === 'production' && uglify())
+    // })
   ]
 };

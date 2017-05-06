@@ -1,4 +1,4 @@
-module.exports = class loader{
+export default class loader{
   constructor(cb){
     this.loadCount = 0;
     this.__loadedHash = {};

@@ -1,8 +1,10 @@
 import EventEmitter from 'eventemitter3';
-import Point from './Point';
+import Point from '../utils/Point';
 import TransformMatrix from '../utils/TransformMatrix.js';
 
-class BaseDisplayObject extends EventEmitter{
+let gameId = 0;
+
+export default class BaseDisplayObject extends EventEmitter{
   constructor(type,x,y,w,h){
     super();
 

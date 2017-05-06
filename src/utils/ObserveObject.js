@@ -59,4 +59,4 @@ function createObserve(cb,scope,...propList){
   return ObserveObject;
 }
 
-module.exports = createObserve;
+export default createObserve;

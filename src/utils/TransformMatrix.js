@@ -96,4 +96,4 @@ class TransformMatrix{
 
 TransformMatrix.staticMatrix = new TransformMatrix();
 
-module.exports = TransformMatrix;
+export default TransformMatrix;

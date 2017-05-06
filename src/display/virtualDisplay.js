@@ -1,4 +1,5 @@
-class VirtualDisplay extends BaseDisplayObject{
+import BaseDisplayObject from './baseDisplayObject.js';
+export default class VirtualDisplay extends BaseDisplayObject{
 
   constructor(game,key,x,y,w,h){
     super('virtualDisplay',x,y);

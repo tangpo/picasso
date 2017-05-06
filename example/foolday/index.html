@@ -8,52 +8,33 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" />
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <% if (!htmlWebpackPlugin.options.debug){ %>
-        <% for (var css in htmlWebpackPlugin.files.css) { %>
-          <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-        <% } %>
-    <% } else {%>
-        <% for (var css in htmlWebpackPlugin.files.css) { %>
-          <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-        <% } %>
-    <% } %>
-    <script src="../common/lib/skynet-activity-foolday-bro.js"></script>
-    <script src="../common/lib/zepto-1.2.0.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div id="firstLv"></div>
+    <div id="firstLv"><div class="canvas-container"></div></div>
     <div class="playgood none"></div>
     <div class="playfail none"></div>
-    <% if (!htmlWebpackPlugin.options.debug){ %>
-        <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-            <script src="./<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-        <% } %>
-    <% } else {%>
-        <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-            <script src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-        <% } %>
-    <% } %>
 
-     <script type="text/javascript">
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+<script src="./dist/index.js"></script>
 
-        var __mztj = {
-            unload: true
-        };
-        var MeizuBH = function(){};
-        (function() {
-            var ga = document.createElement('script'), s;
-            ga.type = 'text/javascript';
-            ga.src = ('https:' == document.location.protocol ? 'https://tongji-res.meizu.com' : 'http://tongji-res1.meizu.com') + '/resources/tongji/flow.js';
-            s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-            ga.onload = function(){
-                window.exposurePage();
-                ga.onload = null;
-            }
-        })();
-
-    </script>
+<script>
+    $('.canvas-container').on('touchend',function(evt){
+      evt = evt.changedTouches ? evt.changedTouches[0] : evt;
+      // $.Event('tap',evt);
+        var newEvent = document.createEvent('Events');
+        
+        for (var name in evt){
+            if(name != 'bubbles')
+                newEvent[name] = evt[name];
+        } 
+        
+                
+        newEvent.initEvent('click', evt.bubbles, true)
+    })
+</script>
 </body>
 </html>

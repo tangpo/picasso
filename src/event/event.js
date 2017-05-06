@@ -6,7 +6,7 @@ const DefaultSettings = {
 }
 let now, delta, deltaX = 0, deltaY = 0, tapTimeout;
 
-module.exports = class EventManager extends EventEmitter{
+class EventManager extends EventEmitter{
   constructor(picasso,options){
     super();
 
@@ -164,3 +164,4 @@ module.exports = class EventManager extends EventEmitter{
     }
   }
 }
+export default EventManager;

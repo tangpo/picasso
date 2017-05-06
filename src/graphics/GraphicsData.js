@@ -1,4 +1,4 @@
-module.exports = class GraphicsData{
+export default class GraphicsData{
   constructor(lineWidth, lineColor, lineAlpha, fillColor, fillAlpha, fill, shape) {
     /**
          * @member {number} the width of the line to draw

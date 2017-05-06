@@ -1,6 +1,6 @@
 import GraphicsData from './GraphicsData.js';
 
-class Graphics extends BaseDisplayObject{
+export default class Graphics extends BaseDisplayObject{
   constructor(game,x,y){
 
     super('graphics',x,y);

@@ -1,6 +1,7 @@
 import BaseDisplayObject from './baseDisplayObject.js';
+import Sprite from './Sprite.js';
 
-class Group extends BaseDisplayObject{
+export default class Group extends BaseDisplayObject{
   constructor(game,x=0,y=0){
     super('group',x,y);
     this.game = game;

@@ -1,9 +1,13 @@
-const tools = require('./utils/tools.js');
-const TweenAction = require('./animate/tweenAction.js');
-
+"use strict";
+import tools from './utils/tools.js';
+import TweenAction from './animate/tweenAction.js';
 import Render from './Render.js';
 import EventManager  from './event/event.js';
 import loader from './utils/loader.js';
+import Group from './display/group.js';
+import Sprite from './display/Sprite.js';
+import SpriteSheet from './display/spriteSheet.js';
+import VirtualDisplay from './display/virtualDisplay.js';
 
 let noop = function(){}
 
@@ -14,8 +18,6 @@ const DeafultSettings = {
   update: noop,
   destroy: noop
 }
-
-let gameId = 0;
 
 class Picasso extends TweenAction{
 
@@ -178,4 +180,4 @@ class Picasso extends TweenAction{
   }
 }
 
-module.exports = Picasso;
+export default Picasso;

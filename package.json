@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/tangpo/picasso#readme",
   "devDependencies": {
+    "cssnano": "^3.10.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-import": "^9.0.0",

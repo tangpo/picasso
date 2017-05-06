@@ -1,4 +1,4 @@
-const tools = require('./tools.js');
+const tools = require('../utils/tools.js');
 const TWEEN = require('Tween.js');
 
 const specProps = {'pos':'_position','scale':'_scale','opacity':'alphaFactor'};
