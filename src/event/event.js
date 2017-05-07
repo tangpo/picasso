@@ -1,5 +1,5 @@
 import EventEmitter from 'eventemitter3';
-import Point from './utils/Point';
+import Point from '../utils/Point';
 
 const DefaultSettings = {
   disableTouch: false
@@ -30,27 +30,22 @@ class EventManager extends EventEmitter{
   }
   Event (eventName,props) {
 
-        var event = document.createEvent('Events')
-          , bubbles = true
-        if (props)
-            for (var name in props)
-                (name == 'bubbles') ? (bubbles = !!props[name]) : (event[name] = props[name])
-        event.initEvent(eventName, bubbles, true)
-    // var ev = document.createEvent('Events'),
-    //     isBubbles = true;
+    var event = document.createEvent('Events'), 
+        bubbles = true;
 
-    // if(evt){
-    //   for(var p in evt){
-    //     if(p == 'bubbles')
-    //       isBubbles = !!evt[p];
-    //     else
-    //       ev[p] = evt[p];
-    //   }
-    // }
-    // ev.originEvent = evt;
-    // ev.initEvent(eventName, isBubbles, true);
+    if (props)
+    {
+      for (var name in props){
+        if(name == 'bubbles')
+          bubbles = !!props[name]
+        else
+          Object.defineProperty(event, name, {value:props[name], enumerable: true});
+      }
+    }
+               
+    event.initEvent(eventName, bubbles, true);
 
-    return ev;
+    return event;
   }
   initEvents (remove) {
     var eventType = remove ? this.removeEvent : this.addEvent,
@@ -123,7 +118,7 @@ class EventManager extends EventEmitter{
     this.processInteractive(hitPoint, this.render.gameObjects,hitTarges);
 
     if (deltaX < 30 && deltaY < 30) {
-      let event = $.Event('tap',point);
+      let event = this.Event('tap',point);
       hitTarges.forEach(hitTarget=>{
         let par = hitTarget.parentGroup;
         hitTarget.emit('tap',event);

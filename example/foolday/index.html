@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>坑爹比智商，4月不愚人！</title>
+    <title>愚人节游戏</title>
     <meta name="screen-orientation" content="landscape">
     <meta name="x5-orientation" content="landscape">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0" />
@@ -15,26 +15,8 @@
 
 <body>
     <div id="firstLv"><div class="canvas-container"></div></div>
-    <div class="playgood none"></div>
-    <div class="playfail none"></div>
 
 <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
 <script src="./dist/index.js"></script>
-
-<script>
-    $('.canvas-container').on('touchend',function(evt){
-      evt = evt.changedTouches ? evt.changedTouches[0] : evt;
-      // $.Event('tap',evt);
-        var newEvent = document.createEvent('Events');
-        
-        for (var name in evt){
-            if(name != 'bubbles')
-                newEvent[name] = evt[name];
-        } 
-        
-                
-        newEvent.initEvent('click', evt.bubbles, true)
-    })
-</script>
 </body>
 </html>
