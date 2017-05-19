@@ -5,8 +5,6 @@ const specProps = {'pos':'_position','scale':'_scale','opacity':'alphaFactor'};
 module.exports = class TweenAction{
 
   constructor(){
-    this.startTweenTime = 0;
-    this.tweenStart = false;
     this._tweenList = [];
   }
 
@@ -23,11 +21,6 @@ module.exports = class TweenAction{
     Object.keys(props).forEach(key=>{
       setProps(key, newProps, gameObj, true);
     })
-
-    if(!this.startTweenTime)
-      this.startTweenTime = tools.getTime();
-
-    let now = tools.getTime();
 
     let tween = new TWEEN.Tween(newProps).delay(delay);
 
@@ -72,6 +65,11 @@ module.exports = class TweenAction{
         newProps[key] = originProps[key];
       }
     }
+  }
+
+  destroy(){
+    TWEEN.removeAll();
+    this._tweenList = [];
   }
 
   get TWEEN(){

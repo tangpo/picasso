@@ -75,6 +75,7 @@ class Picasso extends TweenAction{
   }
 
   destroy () {
+    super.destroy();
     this.gameObjects.loopChild((child)=>{
       child.destroy();
     });
@@ -91,6 +92,7 @@ class Picasso extends TweenAction{
   clear () {
     this.isDestroy = true;
     this.destroy();
+    this.loader.destroy();
     document.querySelector(this.options.container).removeChild(this.viewElement);
     this.viewElement =null;
   }

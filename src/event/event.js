@@ -30,7 +30,7 @@ class EventManager extends EventEmitter{
   }
   Event (eventName,props) {
 
-    var event = document.createEvent('Events'), 
+    var event = document.createEvent('Events'),
         bubbles = true;
 
     if (props)
@@ -42,7 +42,7 @@ class EventManager extends EventEmitter{
           Object.defineProperty(event, name, {value:props[name], enumerable: true});
       }
     }
-               
+
     event.initEvent(eventName, bubbles, true);
 
     return event;

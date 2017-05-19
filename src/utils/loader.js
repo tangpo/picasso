@@ -34,4 +34,8 @@ export default class loader{
         this.completeCallback && this.completeCallback(this.__loadedHash);
     }
   }
+
+  destroy(){
+    this.__loadedHash = null;
+  }
 }
